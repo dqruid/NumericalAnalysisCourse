@@ -25,7 +25,8 @@ t = linspace(interval(1), interval(2), N+1);
 % Solution vector 
 y = [y0 zeros(size(y0, 1), N)];
 
+
 % Solver LOOP 
 for i = 1:N
-    y(i+1) = y(i) + (h * fun(t(i), y(i))); 
+    y(:, i+1) = y(:,i) + (h * fun(t(i), y(:, i))); 
 end 
