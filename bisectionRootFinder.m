@@ -58,7 +58,7 @@ err = ((b - a) / 2);
 nItr = 0; 
 
 % Loop until the convergence or maximum number of iterations reached
-while (err >= TOL || nItr <= NMAX)
+while (err >= TOL && nItr <= NMAX)
     
     % Increase the number of iterations by 1
     nItr = nItr + 1; 
@@ -85,6 +85,7 @@ while (err >= TOL || nItr <= NMAX)
         % Set b to c 
         b = c; 
     else
+        % If set to ERROR, some function don't work
         error ('There is a bug in the algorithm'); 
     end 
     

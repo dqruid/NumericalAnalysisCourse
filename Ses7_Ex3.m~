@@ -1,0 +1,45 @@
+%% Excercise (3-a)
+clear all; 
+close all; 
+clc; 
+
+
+phi1 = @(x) (2 .* x); 
+phi2 = @(x) ((2 .* x) ./ (1 + x)); 
+phi3 = @(x) ((2 .* x .* x) ./ (1 + (x .* x)));
+
+x = 0:0.001:2; 
+
+figure(1) 
+plot(x, phi1(x), '-r', 'DisplayName', 'phi1' ); hold on;
+plot(x, x, '--b', 'DisplayName', 'x' ); hold off;
+legend('show');
+
+figure(2)
+plot(x, phi2(x), '-r', 'DisplayName', 'phi2' ); hold on;
+plot(x, x, '--b','DisplayName', 'x' ); hold on; 
+legend('show');
+
+figure(3)
+plot(x, phi3(x), '-r', 'DisplayName', 'phi3' ); hold on;
+plot(x, x, '--b', 'DisplayName', 'x' ); hold off;
+legend('show');
+
+
+%% Excercise (3-d)
+
+% Initial guess
+x0 = 1; 
+
+% Tolerance 
+TOL = 1e-8; 
+
+% Number of ierations allowed 
+NMAX = 200; 
+
+% Find the FIXED POINT 
+[p, res, nIter] = fixedPoint(phi1, x0, TOL, NMAX); 
+fprintf('The found fixed point  is %f \n', tru p);
+fprintf('The residue is %f \n', res);
+fprintf('The number of iterations is %f \n', nIter);
+
